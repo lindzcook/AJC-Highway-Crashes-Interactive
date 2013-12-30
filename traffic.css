@@ -1,0 +1,83 @@
+html { height: 100%; }
+body .container {
+  margin: 0;
+  padding: 0;
+}
+
+	
+/* START NAV MENU */
+ 
+ .left{
+ width:20%;
+ float: left;
+ }
+ 
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+ nav ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 7px 15px 3px 15px;
+  background: #C0C0C0;
+  margin-left: 1px;
+  height:90px; /* Width and height of top-level nav items */
+  text-align:center;
+  color: #000000;
+}
+
+nav ul li a:visited {
+  color: #000000;
+}
+ 
+nav ul li a:hover {
+  background: #808080;
+}
+ 
+ /* END NAV MENU */
+ 
+ /*CENTER */
+ 
+
+.right{
+height: 100%;
+margin-top: 0;
+float: left;
+padding: 20px;
+ }
+ 
+
+/* DROP DOWN STYLES */
+
+
+ /* END DROP DOWN STYLES */
+ 
+ 
+ 
+ 
+ /* SPREADSHEET STYLES */
+
+ 
+ /* END SPREADSHEET STYLES */
+ 
+ 
+ 
+ 
+  /* GRAPH STYLES */
+
+ 
+ /* END GRAPH STYLES */
+ 
+ 
+ 
+ 
+  /* RANKINGS STYLES */
+
+ 
+ /* END RANKINGS STYLES */
+ 
+
+ /* END CENTER */
