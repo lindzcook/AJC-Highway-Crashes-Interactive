@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 popDropDown();
+popTable ("Toyota");
 
 
 //console.log(data[0].MAKE);
@@ -30,44 +31,71 @@ var matchingCrashes = [];
 
 function popTable (n) {
 	for (i = 0; i < data.length; i++){
-	//if the data make is equal to what you selected
 		if (data[i].MAKE === n) {
-		//add that object to the matching crashes array
 			matchingCrashes[length] = data[i];
 			}//end if 
 		}//end for
 				
-	console.log(matchingCrashes);
-
-//for all in matching crashes array, length is 1, so ut runs once
 	for (j = 0; j < matchingCrashes.length; j++){
-         $("#table").find('tbody')
-         .append($('<tr>')
-         .append($('<td>').text(matchingCrashes[j].COUNTY).append($('</td>') 
-         .append($('</tr>') 
-     	 //.text(matchingCrashes[j].YEAR)//j is zero               
-               ))));
-               console.log('For loop running!');
-               }}
-
- //for some reason this is appending twice and I have no idea why ahhhh
- 
+        
+        var APTime = makeTime(matchingCrashes[j].HOUR, matchingCrashes[j].MINUTE);
+        
+         $("#table")
+         .html('<tr><td>'+ matchingCrashes[j].COUNTY + '</td><td>' 
+         + matchingCrashes[j].MONTH + '/' + matchingCrashes[j].DAY + '/' + matchingCrashes[j].YEAR
+         + '</td><td>' + matchingCrashes[j].DAY_WEEK + '</td><td>' + APTime + '</td><td>' + 
+         matchingCrashes[j].ROUTE + '</td><td>' +  matchingCrashes[j].WEATHER + '</td><td>' 
+         + matchingCrashes[j].TRAV_SP + '</td><td>' + matchingCrashes[j].VSPD_LIM + '</td><td>' 
+         + matchingCrashes[j].DEFORMED + '</td><td>' +  matchingCrashes[j].HARM_EV + '</td><td>' + 
+         matchingCrashes[j].MAN_COLL + '</td></tr>');
+         
+        } //end for 
+        }//close popTable
  
  $('#choose_car').change(function() {
  	popTable($(this).val());
-      });
+      });//change function
 
 
 function drawBarGraph () {
 //d3 bar graph
 
-}
+}//close drawBarGraph
+
+function makeTime(hour, min){
+
+var ispm = new Boolean();
+
+	if (hour > 12)
+	{
+		hour -= 12;
+		ispm = true;
+	}//close if
+		
+	if (min < 10)
+	{
+		min = '0' + min;
+	}//close if
+		
+	var result = hour + ':' + min; 
+	
+	if (ispm)
+	{
+	result += ' p.m.';
+	}//close if 
+	else {
+	result += ' a.m.';
+	}//close else 
+
+return result;
+
+}//end makeTime
 
 function popRankings () {
 
 //rankings
 
-}
+}//close rankings
 
 
 var data= [
@@ -80,9 +108,8 @@ var data= [
     "MINUTE":45,
     "DAY_WEEK":"Monday",
     "YEAR":2012,
-    "ROUTE":1,
-    "WEATHER1":1,
-    "WEATHER2":0,
+    "ROUTE":"Interstate",
+    "WEATHER":"Clear",
     "TRAV_SP":998,
     "VSPD_LIM":0,
     "DEFORMED":0,
@@ -98,9 +125,8 @@ var data= [
     "MINUTE":32,
     "DAY_WEEK":"Tuesday",
     "YEAR":2011,
-    "ROUTE":4,
-    "WEATHER1":2,
-    "WEATHER2":0,
+    "ROUTE":"County Road",
+    "WEATHER":"Rain",
     "TRAV_SP":999,
     "VSPD_LIM":5,
     "DEFORMED":2,
@@ -116,9 +142,8 @@ var data= [
     "MINUTE":12,
     "DAY_WEEK":"Wednesday",
     "YEAR":2010,
-    "ROUTE":7,
-    "WEATHER1":5,
-    "WEATHER2":0,
+    "ROUTE":"Local Street",
+    "WEATHER":"Fog, Smog, Smoke",
     "TRAV_SP":997,
     "VSPD_LIM":80,
     "DEFORMED":4,
@@ -134,9 +159,8 @@ var data= [
     "MINUTE":1,
     "DAY_WEEK":"Thursday",
     "YEAR":2012,
-    "ROUTE":3,
-    "WEATHER1":6,
-    "WEATHER2":8,
+    "ROUTE":"State Highway",
+    "WEATHER":"Severe Crosswinds, Rain",
     "TRAV_SP":0,
     "VSPD_LIM":70,
     "DEFORMED":6,
@@ -152,9 +176,8 @@ var data= [
     "MINUTE":43,
     "DAY_WEEK":"Saturday",
     "YEAR":2009,
-    "ROUTE":2,
-    "WEATHER1":99,
-    "WEATHER2":0,
+    "ROUTE":"U.S. Highway",
+    "WEATHER":"Unknown",
     "TRAV_SP":59,
     "VSPD_LIM":98,
     "DEFORMED":8,
@@ -170,9 +193,8 @@ var data= [
     "MINUTE":22,
     "DAY_WEEK":"Sunday",
     "YEAR":2010,
-    "ROUTE":9,
-    "WEATHER1":3,
-    "WEATHER2":11,
+    "ROUTE":"Unknown",
+    "WEATHER":"Blowing Snow",
     "TRAV_SP":120,
     "VSPD_LIM":99,
     "DEFORMED":9,

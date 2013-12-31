@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+$(document).ready(function(){
 
-body {
-  font: 10px sans-serif;
-}
+drawChart();
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
 
-.bar {
-  fill: steelblue;
-}
+});//close ready
 
-.x.axis path {
-  display: none;
-}
+function drawChart(){
 
-</style>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {top: 20, right: 20, bottom: 30, left: 160},
+    width = 600 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
 var x0 = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -39,7 +20,7 @@ var y = d3.scale.linear()
     .range([height, 0]);
 
 var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6"]);
+    .range(["#FA9A90", "rgb(71, 163, 218)"]);
 
 var xAxis = d3.svg.axis()
     .scale(x0)
@@ -53,10 +34,11 @@ var yAxis = d3.svg.axis()
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "d3")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data.csv", function(error, data) {
+d3.csv("data/trafficbars.csv", function(error, data) {
   var types = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
 
   data.forEach(function(d) {
@@ -80,7 +62,7 @@ d3.csv("data.csv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Percentage of crashes");
+      .text("% of crashes");
 
   var state = svg.selectAll(".state")
       .data(data)
@@ -94,8 +76,10 @@ d3.csv("data.csv", function(error, data) {
       .attr("width", x1.rangeBand())
       .attr("x", function(d) { return x1(d.name); })
       .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); })
-      .style("fill", function(d) { return color(d.name); });
+      .style("fill", function(d) { return color(d.name); })
+    .transition().delay(function (d,i){ return i * 500;})
+ 	.duration(300)
+      .attr("height", function(d) { return height - y(d.value); });
 
   var legend = svg.selectAll(".legend")
       .data(types.slice().reverse())
@@ -118,4 +102,5 @@ d3.csv("data.csv", function(error, data) {
 
 });
 
-</script>
+};
+
