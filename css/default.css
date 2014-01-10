@@ -194,3 +194,22 @@ a:hover {
 .d3 {
   font: 10px sans-serif;
 }
+.right{
+float: right;
+padding: 55px; 
+}
+
+#map{
+width: 300px;
+
+}
+
+/*Map */
+
+#map-right{
+width: 300px;
+margin-left: 300px;
+
+}
+
+

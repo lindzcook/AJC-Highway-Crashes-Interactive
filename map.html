@@ -1,5 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: .7px;
+}
+
+</style>
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
@@ -17,7 +41,7 @@
 		<div class="container">
 			<header class="clearfix">
 		<span>Georgia Road Deaths</span>
-				<h1>Georgia Road Deaths: Map</h1>
+				<h1>Information on Fatal Crashes By County</h1>
 				
 			</header>
 			<ul class="cbp-vimenu">
@@ -30,10 +54,27 @@
 		
 			</ul>
 			<div class="main">
-				<h2>Title Here</h2>
-				<p>This is text about the project in general. This is text about the project in general. This is text about the project in general. This is text about the project in general. This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.</p>
-				<p>This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general.This is text about the project in general. </p>
-
+			
+			<!-- Map -->
+				
+			
+				<!-- Left-->
+				<div class=map-left">
+				<img id = map src="georgia-county-map.gif">
+				<p>Click county on map to display information</p>
+				</div>
+				
+				<!-- Right -->
+				
+				<div class="map-right">
+				<p>TextTextText</p>
+				
+				<script src="http://d3js.org/d3.v3.min.js"></script>
+				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+				<script src="js/line-map.js"></script>
+				
+				</div>
+			
 			</div>
 		</div>
 	</body>

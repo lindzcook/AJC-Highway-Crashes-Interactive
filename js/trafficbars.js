@@ -75,11 +75,12 @@ d3.csv("data/trafficbars.csv", function(error, data) {
     .enter().append("rect")
       .attr("width", x1.rangeBand())
       .attr("x", function(d) { return x1(d.name); })
-      .attr("y", function(d) { return y(d.value); })
+    .attr("y", function(d) { return 0; })
       .style("fill", function(d) { return color(d.name); })
     .transition().delay(function (d,i){ return i * 500;})
  	.duration(300)
-      .attr("height", function(d) { return height - y(d.value); });
+ 	  .attr("y", function(d) { return y(d.value); })
+	.attr("height", function(d) { return height - y(d.value); });
 
   var legend = svg.selectAll(".legend")
       .data(types.slice().reverse())
