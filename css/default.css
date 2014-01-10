@@ -207,9 +207,10 @@ width: 300px;
 /*Map */
 
 #map-right{
-width: 300px;
-margin-left: 300px;
-
+width: 600px;
 }
 
+.watch{
+height: 100px;
 
+}

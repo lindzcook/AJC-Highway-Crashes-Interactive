@@ -11,9 +11,11 @@ function drawChart(){
 
 console.log("DrawChart being called on line");
 
-var margin = {top: 20, right: 0, bottom: 30, left: 20},
-    width = 600 - margin.left - margin.right,
+var margin = {top: 10, right: 100, bottom: 30, left: 200},
+    width = 1100 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
+    
+    //width = 500
 
 var parseDate = d3.time.format("%Y%m%d").parse;
 
